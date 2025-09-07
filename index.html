@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erick Zaratini - Portfólio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --alura-blue: #051D3B;
+      --alura-blue-light: #2D4B7A;
+      --alura-orange: #FF7A00;
+      --alura-green: #00C86F;
+      --alura-purple: #6BD1FF;
+      --alura-bg: #F5F5F5;
+      --alura-card: #FFFFFF;
+      --alura-text: #333333;
+      --alura-text-light: #6B6B6B;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: var(--alura-bg);
+      color: var(--alura-text);
+      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background: var(--alura-blue);
+      color: white;
+      padding: 40px 0;
+      position: relative;
+    }
+    
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    
+    .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Botão de download */
+    .download-btn {
+      background: var(--alura-orange);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .download-btn:hover {
+      background: #E06A00;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Seções */
+    section {
+      padding: 60px 0;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+      color: var(--alura-blue);
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--alura-orange);
+      border-radius: 2px;
+    }
+    
+    /* Cards */
+    .card {
+      background: var(--alura-card);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* Sobre mim */
+    .about-content {
+      display: flex;
+      gap: 40px;
+    }
+    
+    .about-text {
+      flex: 2;
+    }
+    
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    
+    .keyword {
+      background: rgba(0, 200, 111, 0.1);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      border-left: 4px solid var(--alura-green);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      color: var(--alura-blue);
+    }
+    
+    .keyword:nth-child(3n+1) {
+      border-left-color: var(--alura-green);
+    }
+    
+    .keyword:nth-child(3n+2) {
+      border-left-color: var(--alura-orange);
+    }
+    
+    .keyword:nth-child(3n+3) {
+      border-left-color: var(--alura-purple);
+    }
+    
+    .keyword:hover {
+      transform: scale(1.03);
+    }
+    
+    /* Experiência */
+    .job {
+      margin-bottom: 40px;
+    }
+    
+    .job h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: var(--alura-blue);
+    }
+    
+    .job-period {
+      color: var(--alura-orange);
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .job ul {
+      padding-left: 20px;
+    }
+    
+    .job li {
+      margin-bottom: 12px;
+      position: relative;
+      color: var(--alura-text-light);
+    }
+    
+    .job li::before {
+      content: '▹';
+      color: var(--alura-green);
+      position: absolute;
+      left: -20px;
+    }
+    
+    /* Habilidades */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .skill-category {
+      background: var(--alura-card);
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+    
+    .skill-category h3 {
+      color: var(--alura-blue);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--alura-green);
+    }
+    
+    .skill-category ul {
+      list-style-type: none;
+    }
+    
+    .skill-category li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+    }
+    
+    .skill-category li:last-child {
+      border-bottom: none;
+    }
+    
+    .skill-category li::before {
+      content: '•';
+      color: var(--alura-green);
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+    
+    /* Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .project {
+      background: var(--alura-card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project h3 {
+      color: var(--alura-blue);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .project p {
+      color: var(--alura-text-light);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .tech-tag {
+      background: rgba(45, 75, 122, 0.1);
+      padding: 6px 15px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--alura-blue-light);
+      font-weight: 500;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--alura-blue);
+      color: white;
+      text-align: center;
+      padding: 50px 0;
+    }
+    
+    .social-links {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.8rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--alura-green);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsividade */
+    @media (max-width: 992px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.1rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .download-btn {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 30px;
+        display: inline-flex;
+        justify-content: center;
+      }
+      
+      header {
+        padding: 40px 0;
+      }
+      
+      .header-content {
+        padding-top: 20px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="curriculo_erick_zaratini.pdf" download class="download-btn"><i class="fas fa-download"></i> Baixar Currículo</a>
+      <div class="header-content">
+        <h1>Erick Zaratini da Crus</h1>
+        <p class="tagline">Desenvolvedor em Formação & Analista de Dados</p>
+        <div class="contact-info">
+          <span><i class="fas fa-car"></i> CNH: B</span>
+          <span><i class="fas fa-phone"></i> (11) 98887-2334</span>
+          <span><i class="fas fa-envelope"></i> zaratinidacrus@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="about">
+    <div class="container">
+      <h2>Sobre Mim</h2>
+      <div class="card">
+        <div class="about-content">
+          <div class="about-text">
+            <p>Profissional com experiência em e-commerce e vendas, em transição para a área de Tecnologia da Informação, com foco em Análise de Dados, Business Intelligence e Inteligência Artificial. Possuo sólida experiência em gestão de informações, resolução de problemas e implementação de soluções digitais, com grande capacidade de aprendizado e aplicação prática de tecnologias emergentes.</p>
+            
+            <div class="keywords">
+              <span class="keyword">Transformação Digital</span>
+              <span class="keyword">Análise de Dados</span>
+              <span class="keyword">Business Intelligence</span>
+              <span class="keyword">Python</span>
+              <span class="keyword">SQL</span>
+              <span class="keyword">Power BI</span>
+              <span class="keyword">Machine Learning</span>
+              <span class="keyword">Otimização de Processos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <div class="container">
+      <h2>Experiência Profissional</h2>
+      
+      <div class="card">
+        <div class="job">
+          <h3>Loja Estrela do Lar - Operador de Loja / Estoquista</h3>
+          <span class="job-period">2023 - Presente</span>
+          <ul>
+            <li>Gerenciamento de estoque com controle sistemático de entradas e saídas, implementando planilhas automatizadas</li>
+            <li>Otimização de vendas online através de análise de dados de desempenho de produtos</li>
+            <li>Atendimento ao cliente com foco na resolução de problemas e coleta de feedback para melhorias processuais</li>
+            <li>Organização de produtos utilizando metodologias de classificação e catalogação eficientes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="job">
+          <h3>Yellow Toys Magazine - Gestor de E-commerce</h3>
+          <span class="job-period">2021 - 2023</span>
+          <ul>
+            <li>Gestão completa do e-commerce com foco em marketplaces (Mercado Livre, B2B, Americanas, Shopee)</li>
+            <li>Análise de métricas de vendas e desempenho de produtos para tomada de decisões estratégicas</li>
+            <li>Criação e otimização de anúncios com testes A/B para maximizar conversões</li>
+            <li>Implementação de processos de manutenção de estoque integrado entre plataformas</li>
+            <li>Edição de imagens e conteúdo para otimização de conversão e experiência do usuário</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="education">
+    <div class="container">
+      <h2>Formação Acadêmica</h2>
+      <div class="card">
+        <h3>Ensino Médio Completo</h3>
+        <p>Allyrio de Figueiredo Brasil</p>
+      </div>
+      
+      <h2 style="margin-top: 60px;">Cursos e Certificações</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Tecnologia & Análise de Dados</h3>
+          <ul>
+            <li>Excel Intermediário - Senar Play</li>
+            <li>Python para Data Science - Coursera (em andamento)</li>
+            <li>Fundamentos de Business Intelligence - Udemy (em andamento)</li>
+            <li>Introdução a SQL - Digital Innovation One</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Marketing Digital</h3>
+          <ul>
+            <li>Marketing Digital Mobile - Social Mídias - FIAP ON</li>
+            <li>Gestão de Tráfego e Anúncios - Facebook Blueprint</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Idiomas</h3>
+          <ul>
+            <li>Inglês Básico - CNA</li>
+            <li>Inglês Técnico para TI - Curso em andamento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="container">
+      <h2>Habilidades Técnicas</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Análise de Dados</h3>
+          <ul>
+            <li>Excel Intermediário (Fórmulas, Tabelas Dinâmicas, Gráficos)</li>
+            <li>Visualização de Dados (Power BI, Tableau - Básico)</li>
+            <li>Análise Estatística Descritiva</li>
+            <li>Manipulação de Dados</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Tecnologia & Programação</h3>
+          <ul>
+            <li>Python (Básico)</li>
+            <li>SQL (Básico)</li>
+            <li>Noções de Machine Learning</li>
+            <li>Git e GitHub</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>E-commerce & Marketing Digital</h3>
+          <ul>
+            <li>Gestão de Marketplaces (Mercado Livre, B2B, Americanas, Shopee)</li>
+            <li>Gestão de Redes Sociais</li>
+            <li>Criação de Conteúdo e Edição de Imagens/Vídeos</li>
+            <li>Análise de Métricas de Performance</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Competências Transversais</h3>
+          <ul>
+            <li>Resolução de Problemas</li>
+            <li>Gestão de Projetos</li>
+            <li>Organização e Controle de Estoque</li>
+            <li>Atendimento ao Cliente</li>
+            <li>Capacidade Analítica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="container">
+      <h2>Projetos em Destaque</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <div class="project-content">
+            <h3>Análise de Vendas E-commerce</h3>
+            <p>Dashboard interativo criado no Excel para análise de desempenho de vendas em marketplaces, identificando produtos mais rentáveis e sazonais.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Excel</span>
+              <span class="tech-tag">Análise de Dados</span>
+              <span class="tech-tag">Dashboard</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project">
+          <div class="project-content">
+            <h3>Otimização de Estoque</h3>
+            <p>Sistema de controle de inventário com indicadores de giro de mercadoria e alertas de reposição baseado em planilhas automatizadas.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Excel</span>
+              <span class="tech-tag">Gestão</span>
+              <span class="tech-tag">Otimização</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project">
+          <div class="project-content">
+            <h3>Análise de Performance de Anúncios</h3>
+            <p>Relatório analítico comparando performance de diferentes anúncios e estratégias de pricing para maximizar conversões.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Marketing</span>
+              <span class="tech-tag">Métricas</span>
+              <span class="tech-tag">Análise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Disponível para oportunidades em Análise de Dados, Business Intelligence e áreas correlatas de TI</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/erickzaratini/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/ErickZaratini" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/erick.zaratini" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:zaratinidacrus@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

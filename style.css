@@ -1,0 +1,110 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Importando fontes do Google */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif; /* Fonte futurista mas legível para textos */
+  background: url('assets/background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* melhora nitidez no Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale; /* melhora nitidez no Firefox */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(10,15,35,0.85);
+  border: 2px solid #00ff99; /* verde neon */
+  border-radius: 15px;
+  box-shadow: 0 0 20px #6c63ff, 0 0 40px #00ff99;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif; /* Fonte futurista para o título */
+  font-weight: 700; /* Mais grossa para nitidez */
+  color: #FFFFFF; /* Branco nítido */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Pequeno brilho para destacar */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #00ff99;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  font-family: 'Orbitron', sans-serif; /* Futurista para subtítulos */
+  font-size: 2em;
+  color: #00ff99;
+  border-bottom: 2px solid #6c63ff;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.job h3 {
+  font-family: 'Orbitron', sans-serif; /* Futurista para cargos */
+  color: #6c63ff;
+}
+
+.job p {
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "▹";
+  color: #00ff99;
+  margin-right: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #6c63ff;
+  color: #ffffff;
+}
+.verde-neon {
+  color: #00FF7F; /* Verde neon */
+  text-shadow: 0 0 5px #00FF7F, 0 0 15px #00FF7F; /* Glow neon */
+  font-weight: 500;
+}
+.jobs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px; /* Espaçamento entre experiências */
+}
+
+.job {
+  flex: 1;
+}
+
+.divider {
+  width: 2px;
+  background: #00ff7f; /* Verde neon da linha divisória */
+  box-shadow: 0 0 5px #00ff7f, 0 0 15px #00ff7f;
+}
